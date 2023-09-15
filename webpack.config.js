@@ -51,7 +51,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
-            title: 'Social Network Statistics',
+            title: 'Social Network Time Statistics',
             template: './src/index.html',
         }),
         new webpack.ProvidePlugin({
