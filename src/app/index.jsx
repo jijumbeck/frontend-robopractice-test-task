@@ -1,7 +1,7 @@
-import { SocialNetworkTimeTable } from "../SocialNetworkTime/ui/SocialNetworkTimeTable"
+import { SocialNetworkTimeWidget } from "../SocialNetworkTime/ui/SocialNetworkTimeWidget"
 
 export const App = () => {
     return (
-        <SocialNetworkTimeTable />
+        <SocialNetworkTimeWidget />
     )
 }
