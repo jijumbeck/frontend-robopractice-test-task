@@ -1,0 +1,12 @@
+.SocialNetworkTimeFirstColumn {
+    background-color: rgba(224, 224, 224, 1);
+    position: sticky;
+    left: 0px;
+
+}
+
+.SocialNetworkTimeLastColumn {
+    background-color: rgba(224, 224, 224, 1);
+    position: sticky;
+    right: 0px;
+}

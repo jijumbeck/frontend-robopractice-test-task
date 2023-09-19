@@ -3,6 +3,7 @@ import { getSNTimeOfWorkers } from "../model/snTimeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { getClientTimeForMonth } from "../helpers/mapClientObject";
+import './SocialNetworkTime.css';
 
 
 const days = Array(31).fill(0).map((elem, index) => index + 1);
@@ -11,10 +12,11 @@ Table.Head = () => {
     return (
         <TableHead>
             <TableRow>
-                <TableCell>User</TableCell>
+                <TableCell className="SocialNetworkTimeFirstColumn">User</TableCell>
                 {
                     days.map(day => <TableCell key={day}>{day}</TableCell>)
                 }
+                <TableCell className="SocialNetworkTimeLastColumn">Monthly total</TableCell>
             </TableRow>
         </TableHead>
     )
@@ -23,10 +25,11 @@ Table.Head = () => {
 Table.ClientRow = ({ client }) => {
     return (
         <TableRow>
-            <TableCell>{client.Fullname}</TableCell>
+            <TableCell className="SocialNetworkTimeFirstColumn">{client.Fullname}</TableCell>
             {
                 client.days.map((day,index) => <TableCell key={index}>{day}</TableCell>)
             }
+            <TableCell className="SocialNetworkTimeLastColumn">{client.averagePerMonth}</TableCell>
         </TableRow>
     )
 }
