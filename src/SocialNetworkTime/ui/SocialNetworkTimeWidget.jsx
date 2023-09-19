@@ -2,10 +2,12 @@ import { useEffect } from "react"
 import { getSNTimeOfWorkers } from "../model/snTimeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { SocialNetworkTimeTable } from "./SocialNetworkTimeTable";
+import { SocialNetworkTimePaginationTable } from "./SocialNetworkTimePaginationTable";
 
 export const SocialNetworkTimeWidget = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+        console.log("start");
         dispatch(getSNTimeOfWorkers());
     }, []);
 
@@ -13,7 +15,7 @@ export const SocialNetworkTimeWidget = () => {
 
     return(
         <div>
-            <SocialNetworkTimeTable clients={data} />
+            <SocialNetworkTimePaginationTable useSelectorFunction={store => store.snTimeOfWorkers.clients} />
         </div>
     )
 }
