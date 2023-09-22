@@ -1,0 +1,9 @@
+.ClientSearchInput {
+    width: 60%;
+}
+
+@media screen and (max-width: 1000px) {
+    .ClientSearchInput {
+        width: 100%;
+    }
+}

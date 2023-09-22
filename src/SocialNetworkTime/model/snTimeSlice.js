@@ -14,11 +14,17 @@ export const getSNTimeOfWorkers = createAsyncThunk(
 
 const initialState = {
     clients: [],
+    searchFilter: '',
 }
 
 export const snTimeSlice = createSlice({
     name: 'snTime',
     initialState,
+    reducers: {
+        setSearchFilter: (state, action) => {
+            state.searchFilter = action.payload;
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase(getSNTimeOfWorkers.fulfilled, (state, action) => {
@@ -28,3 +34,4 @@ export const snTimeSlice = createSlice({
 })
 
 export default snTimeSlice.reducer;
+export const { setSearchFilter } = snTimeSlice.actions;
