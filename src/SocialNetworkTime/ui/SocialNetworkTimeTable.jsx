@@ -1,8 +1,5 @@
-import { useEffect } from "react"
-import { getSNTimeOfWorkers } from "../model/snTimeSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { getClientTimeForMonth } from "../helpers/mapClientObject";
+import { getClientTimeForMonth, mapTimeHoursMinToString } from "../helpers/mapClientObject";
 import './SocialNetworkTime.css';
 
 
@@ -21,15 +18,15 @@ Table.Head = () => {
         </TableHead>
     )
 }
-
+ 
 Table.ClientRow = ({ client }) => {
     return (
         <TableRow>
             <TableCell className="SocialNetworkTimeFirstColumn">{client.Fullname}</TableCell>
             {
-                client.days.map((day,index) => <TableCell key={index}>{day}</TableCell>)
+                client.minutesOfDays.map((minutes, index) => <TableCell key={index}>{mapTimeHoursMinToString(minutes)}</TableCell>)
             }
-            <TableCell className="SocialNetworkTimeLastColumn">{client.averagePerMonth}</TableCell>
+            <TableCell className="SocialNetworkTimeLastColumn">{mapTimeHoursMinToString(client.totalMinutes)}</TableCell>
         </TableRow>
     )
 }
@@ -41,7 +38,7 @@ export const SocialNetworkTimeTable = ({ clients }) => {
                 <Table.Head />
                 <TableBody>
                     {
-                        clients.map(client => <Table.ClientRow key={client.id} client={getClientTimeForMonth(client)} />)
+                        clients.map(client => <Table.ClientRow key={client.id} client={client} />)
                     }
                 </TableBody>
             </Table>

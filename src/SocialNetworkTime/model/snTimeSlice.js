@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSNTimeOfWorkersRequest } from "../api/snTimeService";
+import { handleClientObject } from "../helpers/mapClientObject";
 
 export const getSNTimeOfWorkers = createAsyncThunk(
     'snTime/getSNTime',
     async (params, thunkAPI) => {
-        const response = await getSNTimeOfWorkersRequest();
-        console.log(response);
-        return response;
+        let clients = await getSNTimeOfWorkersRequest();
+        clients = clients.map(client => handleClientObject(client));
+        console.log(clients);
+        return clients;
     }
 )
 
