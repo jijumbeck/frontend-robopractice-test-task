@@ -7,7 +7,6 @@ import { SocialNetworkTimePaginationTable } from "./SocialNetworkTimePaginationT
 export const SocialNetworkTimeWidget = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        console.log("start");
         dispatch(getSNTimeOfWorkers());
     }, []);
 
@@ -15,7 +14,7 @@ export const SocialNetworkTimeWidget = () => {
 
     return(
         <div>
-            <SocialNetworkTimePaginationTable useSelectorFunction={store => store.snTimeOfWorkers.clients} />
+            <SocialNetworkTimePaginationTable getListFunction={() => useSelector(store => store.snTimeOfWorkers.clients)} />
         </div>
     )
 }

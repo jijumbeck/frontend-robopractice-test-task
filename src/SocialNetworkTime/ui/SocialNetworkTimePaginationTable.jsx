@@ -2,7 +2,7 @@ import { TablePagination } from "@mui/material";
 import { usePagination } from "../helpers/usePagination"
 import { SocialNetworkTimeTable } from "./SocialNetworkTimeTable";
 
-export const SocialNetworkTimePaginationTable = ({ useSelectorFunction }) => {
+export const SocialNetworkTimePaginationTable = ({ getListFunction }) => {
     const {
         count,
         rowsNumber,
@@ -10,7 +10,7 @@ export const SocialNetworkTimePaginationTable = ({ useSelectorFunction }) => {
         rowsToDisplay,
         setRow,
         setPage,
-    } = usePagination(useSelectorFunction);
+    } = usePagination(getListFunction);
 
     return (
         <div>

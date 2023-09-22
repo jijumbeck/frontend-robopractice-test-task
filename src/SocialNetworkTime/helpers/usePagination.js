@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export const usePagination = (useSelectorFunction) => {
-    const list = useSelector(useSelectorFunction);
+export const usePagination = (getListFunction) => {
+    const list = getListFunction();
 
     const [rowsNumber, setRowsNumber] = useState(10);
     const [pageNumber, setPageNumber] = useState(0);
